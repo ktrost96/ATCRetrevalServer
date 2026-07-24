@@ -1,0 +1,30 @@
+# Secrets / credentials — never commit
+config.json
+config.local.json
+*.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fetched league data output
+data/
+output/
+*.log
+
+# Claude local settings (per-machine overrides)
+.claude/settings.local.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

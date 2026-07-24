@@ -1,0 +1,9 @@
+{
+  "iracing": {
+    "email": "your-iracing-login-email@example.com",
+    "password": "your-iracing-password",
+    "client_id": "client_id",
+    "client_secret": "client_secret"
+  },
+  "leagueId": 0
+}
