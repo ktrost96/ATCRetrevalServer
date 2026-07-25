@@ -4,6 +4,8 @@
     "deny": [
       "Read(config.json)",
       "Read(./config.json)",
+      "Read(config/config.json)",
+      "Read(./config/config.json)",
       "Read(**/config.json)"
     ]
   }

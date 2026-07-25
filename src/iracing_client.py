@@ -31,7 +31,8 @@ import requests
 BASE_URL = "https://members-ng.iracing.com"
 TOKEN_URL = "https://oauth.iracing.com/oauth2/token"
 DEFAULT_SCOPE = "iracing.auth"
-CONFIG_PATH = Path(__file__).resolve().parent / "config.json"
+# Code lives in src/; config lives in the sibling config/ dir at the repo root.
+CONFIG_PATH = Path(__file__).resolve().parent.parent / "config" / "config.json"
 
 # Refresh the access token this many seconds before it actually expires.
 _EXPIRY_BUFFER = 60
@@ -138,6 +139,22 @@ class IRacingClient:
         if isinstance(data, dict) and data.get("chunk_info"):
             return self._download_chunks(data["chunk_info"])
         return data
+
+    # -- high-level data helpers -------------------------------------------
+    def get_subsession_result(
+        self, subsession_id: int, include_licenses: bool = False
+    ) -> dict:
+        """Return the full results document for a single subsession.
+
+        This is the complete record for one race ID: every session segment
+        (practice / qualify / race), each driver's finishing position, incidents,
+        laps completed, best lap, etc. Wraps the /data/results/get endpoint.
+        """
+        return self.get(
+            "results/get",
+            subsession_id=subsession_id,
+            include_licenses=include_licenses,
+        )
 
     def _raw_get(self, endpoint: str, params: dict[str, Any], _retry: bool = True) -> Any:
         self._ensure_token()

@@ -1,7 +1,12 @@
 # Secrets / credentials — never commit
+# (bare name matches at any depth; explicit path documents where it lives now)
 config.json
+config/config.json
 config.local.json
 *.local.json
+
+# Runtime logs — local operational history, not part of the repo
+logs/
 
 # Python
 __pycache__/
@@ -14,11 +19,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Fetched league data output
-data/
-output/
-*.log
 
 # Claude local settings (per-machine overrides)
 .claude/settings.local.json

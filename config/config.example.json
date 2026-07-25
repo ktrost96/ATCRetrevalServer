@@ -5,5 +5,9 @@
     "client_id": "client_id",
     "client_secret": "client_secret"
   },
-  "leagueId": 0
+  "leagueId": 0,
+  "supabase": {
+    "url": "https://mysupabaseurl.supabase.co",
+    "service_role_key": "your-service-role-key"
+  }
 }
