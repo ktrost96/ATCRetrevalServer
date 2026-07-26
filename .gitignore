@@ -8,6 +8,9 @@ config.local.json
 # Runtime logs — local operational history, not part of the repo
 logs/
 
+# Derived local state (the non-race cache). Rebuildable from iRacing.
+state/
+
 # Python
 __pycache__/
 *.py[cod]
